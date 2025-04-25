@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập - CarShop</title>
+    <link rel="stylesheet" href="../css/login-style.css">
+ 
+</head>
+<body>
+    <div class="login-container">
+        <div class="logo">Car<span>Shop</span></div>
+        <h1>Đăng nhập</h1>
+        
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Mật khẩu</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            
+            <button type="submit" class="login-btn">Đăng nhập</button>
+            
+            <div class="form-footer">
+                <p>Chưa có tài khoản? <a href="signup.html" class="register-link">Đăng ký ngay</a></p>
+            </div>
+        </form>
+    </div>
+    <script src="../javascript/login-js.js"></script>
+</body>
+</html>

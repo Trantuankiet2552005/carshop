@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin tài khoản - CarShop</title>
+    <link rel="stylesheet" href="../css/index-style.css">
+    <link rel="stylesheet" href="../css/profile-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        
+        <div class="header-container">
+            <!--Logo-->
+            <div class="logo-container">
+                <div class="logo">Car<span>Shop</span></div>
+                <div class="tagline">Nơi đam mê tốc độ bắt đầu</div>
+            </div>
+        </div>
+                    <!--Logo-->
+                    <div style="justify-content: center;">
+                        <nav class="main-nav">
+                            <ul>
+                                <li><a href="index-center.html">TRANG CHỦ</a></li>
+                                <li><a href="index-product.html">Ô TÔ</a></li>
+                                <li><a href="index-motor.html">XE MÁY</a></li>
+                                <li><a href="intro.html">GIỚI THIỆU</a></li>
+                                <li><a href="profile.html" class="active">THÔNG TIN</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                        <!--Logo-->
+                   <div style="justify-content: right;"></div>
+                            
+                        </div>
+    
+                  </div>
+                  <div class="auth-buttons">
+                    <span id="welcome-msg"></span>
+                    <a href="cart.html" class="cart-icon">
+                        <span class="cart-badge" id="cart-count">0</span>
+                        <svg class="cart-svg" viewBox="0 0 24 24" width="28" height="28">
+                            <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                        </svg>
+                    </a>
+                    &thinsp;
+                    <a href="login.html" class="btn login-btn" id="login-btn">ĐĂNG NHẬP</a>
+                    <a href="signup.html" class="btn signup-btn" id="signup-btn">ĐĂNG KÝ</a>
+                    <a href="#" class="btn logout-btn" id="logout-btn" style="display: none;">ĐĂNG XUẤT</a>
+                </div>
+    </header>
+    
+    <!--class="active" chỉnh màu cho từng Thông tin trong trang-->
+
+    <main class="profile-container">
+        <!-- Thêm vào sau thẻ <main> -->
+<div id="not-logged-in" style="display: none; text-align: center; padding: 50px;">
+    <h2>Bạn cần đăng nhập để xem thông tin cá nhân</h2>
+    <a href="login.html" class="btn btn-primary">Đăng nhập ngay</a>
+</div>
+        <div class="profile-header">
+            <h1>THÔNG TIN TÀI KHOẢN</h1>
+            <button class="btn btn-settings">
+                <i class="fas fa-cog"></i> Cài đặt
+            </button>
+        </div>
+
+        <div class="profile-card">
+            <div class="card-header">
+                <h2><i class="fas fa-user-circle"></i> Thông Tin Cá Nhân</h2>
+            </div>
+            <div class="profile-content">
+                <img src="https://ui-avatars.com/api/?name=User+Name&background=4361ee&color=fff&size=120" alt="Avatar" class="profile-avatar">
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <span class="detail-label">Họ và tên:</span>
+                        <span class="detail-value" id="user-fullname"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Tên đăng nhập:</span>
+                        <span class="detail-value" id="user-username"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Email:</span>
+                        <span class="detail-value" id="user-email"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Số điện thoại:</span>
+                        <span class="detail-value" id="user-phone"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Ngày tham gia:</span>
+                        <span class="detail-value" id="user-createdAt"></span>
+                    </div>
+                </div>
+                <div class="profile-stats">
+                    <div class="detail-item">
+                        <span class="detail-label">Tổng đơn hàng:</span>
+                        <span class="detail-value">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Đơn hàng thành công:</span>
+                        <span class="detail-value text-success">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Đơn hàng đang xử lý:</span>
+                        <span class="detail-value text-warning">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Đơn hàng đã hủy:</span>
+                        <span class="detail-value text-danger">0</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Tổng chi tiêu:</span>
+                        <span class="detail-value text-primary">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <div class="card-header">
+                <h2><i class="fas fa-shopping-bag"></i> Lịch Sử Đơn Hàng</h2>
+                <button id="clear-history-btn" class="btn btn-danger">
+                    <i class="fas fa-trash-alt"></i> Xóa lịch sử đơn hàng
+                </button>
+            </div>
+            <div class="orders-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã đơn hàng</th>
+                            <th>Ngày đặt</th>
+                            <th>Sản phẩm</th>
+                            <th>Thanh toán</th>
+                            <th>Trạng thái</th>
+                            <th>Tổng tiền</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-body">
+                        <!-- Orders will be loaded here -->
+                    </tbody>
+                </table>
+                <div id="no-orders" class="no-orders">
+                    <i class="fas fa-shopping-cart"></i>
+                    <p>Bạn chưa có đơn hàng nào</p>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Đặt hàng ngay
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div id="delete-confirm-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Xác nhận xóa</h3>
+            <p>Bạn có chắc chắn muốn xóa toàn bộ lịch sử đơn hàng?</p>
+            <div class="modal-actions">
+                <button id="confirm-delete" class="btn btn-danger">Xóa</button>
+                <button id="cancel-delete" class="btn btn-outline">Hủy</button>
+            </div>
+        </div>
+    </div>
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Car<span>Shop</span></div>
+                    <p class="footer-tagline">Nơi đam mê tốc độ bắt đầu</p>
+                    <p>CarShop tự hào là địa chỉ uy tín cung cấp các dòng xe chất lượng cao với dịch vụ chuyên nghiệp.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liên Kết Nhanh</h4>
+                    <ul>
+                        <li><a href="index-center.html">Trang Chủ</a></li>
+                        <li><a href="index-product.html">Ô Tô</a></li>
+                        <li><a href="index-motor.html">Xe Máy</a></li>
+                        <li><a href="intro.html">Giới Thiệu</a></li>
+                        <li><a href="profile.html">Thông Tin</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Dịch Vụ</h4>
+                    <ul>
+                        <li><a href="tel: +84 23126021">Bảo Dưỡng Định Kỳ</a></li>
+                        <li><a href="tel: +84 23126021">Sửa Chữa Chuyên Sâu</a></li>
+                        <li><a href="tel: +84 23126021">Phụ Tùng Chính Hãng</a></li>
+                        <li><a href="phone.html">Tư Vấn Tài Chính</a></li>
+                        <li><a href="phone.html">Bảo Hiểm Xe</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Đăng Ký Nhận Tin</h4>
+                    <p>Đăng ký để nhận thông tin khuyến mãi và tin tức mới nhất từ chúng tôi.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn" required>
+                        <button id="submitBtn" type="submit"><i class="fas fa-paper-plane"></i></button>
+
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../javascript/cart-js.js"></script>
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/profile-js.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser'));
+            if (!currentUser) {
+                document.querySelector('.profile-container').style.display = 'none';
+                document.getElementById('not-logged-in').style.display = 'block';
+            }
+        });
+    </script>
+    <!-- Thêm vào trước thẻ </body> -->
+<div id="edit-profile-modal" class="modal" style="display: none;">
+    <div class="modal-content" style="max-width: 500px;">
+        <br><i class="fas fa-user-edit"></i> Cập nhật thông tin cá nhân<hr><br></h3>
+        <form id="profile-form">
+            <div class="form-group">
+                <label for="edit-fullname">Họ và tên:</label>
+                <input type="text" id="edit-fullname" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-email">Email:</label>
+                <input type="email" id="edit-email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="edit-phone">Số điện thoại:</label>
+                <input type="tel" id="edit-phone" class="form-control" required>
+            </div>
+            <!-- In the edit-profile-modal div, add these fields after the phone input -->
+<div class="form-group">
+    <label for="current-password">Mật khẩu hiện tại:</label>
+    <input type="password" id="current-password" class="form-control">
+</div>
+<div class="form-group">
+    <label for="new-password">Mật khẩu mới:</label>
+    <input type="password" id="new-password" class="form-control">
+</div>
+<div class="form-group">
+    <label for="confirm-password">Xác nhận mật khẩu mới:</label>
+    <input type="password" id="confirm-password" class="form-control">
+</div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+                <button type="button" id="cancel-edit" class="btn btn-outline">Hủy bỏ</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu - CarShop</title>
+    <link rel="stylesheet" href="../css/index-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thông báo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .notice {
+      display: none;
+      height: 100vh;
+      background-color: #f8d7da;
+      color: #721c24;
+      text-align: center;
+      padding: 2rem;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .notice h1 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .notice p {
+      margin-bottom: 1.5rem;
+    }
+
+    .notice button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #721c24;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="notice" id="mobileNotice">
+    <h1>⚠️ Trang web chỉ hiển thị đẹp nhất khi đăng nhập bằng máy tính</h1>
+    <p>Vui lòng sử dụng máy tính để có trải nghiệm tốt nhất.</p>
+    <button onclick="continueOnMobile()">Vẫn sử dụng với điện thoại</button>
+  </div>
+
+  <main class="intro-container">
+    <section class="intro-header">
+        <h1>Về Chúng Tôi</h1>
+        <p>CarShop được thành lập bởi nhóm sinh viên đam mê công nghệ và xe cộ, với mong muốn mang đến trải nghiệm mua sắm xe trực tuyến tốt nhất cho người dùng Việt Nam.</p>
+    </section>
+    
+    <section class="team-section">
+        <h2>Đội Ngũ Phát Triển</h2>
+        <div class="team-grid">
+            <div class="team-card leader">
+                <div class="card-header">
+                    <img src="../images/kiet.jpg" alt="Trần Tuấn Kiệt" class="team-avatar">
+                </div>
+                <div class="card-body">
+                    <h3 class="team-name">Trần Tuấn Kiệt</h3>
+                    <span class="team-role">Nhóm trưởng - Fullstack Developer</span>
+                    <p class="team-desc">Phụ trách toàn bộ lập trình frontend và backend, triển khai chức năng chính, và quản lý tiến độ dự án. Đảm bảo hệ thống hoạt động ổn định và bảo mật.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="card-header">
+                    <img src="../images/khanh.jpg" alt="Trương Phước Khánh" class="team-avatar">
+                </div>
+                <div class="card-body">
+                    <h3 class="team-name">Trương Phước Khánh</h3>
+                    <span class="team-role">UI/UX Designer</span>
+                    <p class="team-desc">Thiết kế giao diện người dùng, tối ưu trải nghiệm người dùng. Đảm bảo website có giao diện đẹp mắt, dễ sử dụng trên mọi thiết bị.</p>
+                </div>
+            </div>
+            
+            <div class="team-card">
+                <div class="card-header">
+                    <img src="../images/khai.jpg" alt="Lê Quốc Khải" class="team-avatar">
+                </div>
+                <div class="card-body">
+                    <h3 class="team-name">Lê Quốc Khải</h3>
+                    <span class="team-role">Frontend Developer</span>
+                    <p class="team-desc">Phát triển giao diện người dùng, tối ưu hiệu suất website. Hỗ trợ kiểm thử và đảm bảo tính tương thích trên nhiều trình duyệt khác nhau.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="mission-section">
+        <h2>Sứ Mệnh Của Chúng Tôi</h2>
+        <div class="mission-content">
+            <p>Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng với giá cả hợp lý nhất. CarShop không chỉ là nơi mua bán xe mà còn là cộng đồng chia sẻ đam mê tốc độ và công nghệ xe hơi.</p>
+            <p>Với đội ngũ trẻ trung, nhiệt huyết và sáng tạo, chúng tôi luôn nỗ lực cải tiến để mang đến trải nghiệm mua sắm trực tuyến tốt nhất cho người dùng Việt Nam.</p>
+        </div>
+    </section>
+</main>
+  <script>
+    function isMobileDevice() {
+      return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    function continueOnMobile() {
+      window.location.href = "../html-subprogram/index-center.html";
+    }
+
+    // Tự động xử lý khi trang vừa tải
+    window.onload = function () {
+      if (isMobileDevice()) {
+        // Nếu là thiết bị di động → hiện thông báo
+        document.getElementById('mobileNotice').style.display = 'flex';
+      } else {
+        // Nếu là máy tính → chuyển hướng ngay
+        window.location.href = "../html-subprogram/index-center.html";
+      }
+    };
+  </script>
+</body>
+</html>
+
+    <!--class="active" chỉnh màu cho từng Thông tin trong trang-->

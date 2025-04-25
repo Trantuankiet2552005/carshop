@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức Xe - CarShop</title>
+    <link rel="stylesheet" href="../css/index-style.css">
+    <link rel="stylesheet" href="../css/news-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo-container">
+                <div class="logo">Car<span>Shop</span></div>
+                <div class="tagline">Nơi đam mê tốc độ bắt đầu</div>
+            </div>
+            
+            <!-- Navigation -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index-center.html">TRANG CHỦ</a></li>
+                    <li><a href="index-product.html">Ô TÔ</a></li>
+                    <li><a href="index-motor.html">XE MÁY</a></li>
+                    <li><a href="news.html" class="active">TIN TỨC</a></li>
+                    <li><a href="intro.html">GIỚI THIỆU</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Auth buttons -->
+            <div class="auth-buttons">
+                <span id="welcome-msg"></span>
+                <a href="cart.html" class="cart-icon">
+                    <span class="cart-badge" id="cart-count">0</span>
+                    <svg class="cart-svg" viewBox="0 0 24 24" width="28" height="28">
+                        <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                    </svg>
+                </a>
+                &thinsp;
+                <a href="login.html" class="btn login-btn" id="login-btn">ĐĂNG NHẬP</a>
+                <a href="signup.html" class="btn signup-btn" id="signup-btn">ĐĂNG KÝ</a>
+                <a href="#" class="btn logout-btn" id="logout-btn" style="display: none;">ĐĂNG XUẤT</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="news-page">
+        <!-- Hero Banner -->
+        <section class="news-hero" style="background-image: url('../images/news-banner.jpg');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1>Tin Tức Xe</h1>
+                <p>Cập nhật những tin tức mới nhất về thế giới xe hơi và xe máy</p>
+            </div>
+        </section>
+
+        <!-- News Categories -->
+        <section class="news-categories">
+            <div class="container">
+                <ul>
+                    <li><a href="#" class="active">Tất cả</a></li>
+                    <li><a href="#">Ô tô</a></li>
+                    <li><a href="#">Xe máy</a></li>
+                    <li><a href="#">Công nghệ</a></li>
+                    <li><a href="#">Đánh giá</a></li>
+                    <li><a href="#">Sự kiện</a></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Featured News -->
+        <section class="featured-news">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Tin Nổi Bật</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="featured-article">
+                    <div class="featured-image">
+                        <img src="../images/news-featured-1.jpg" alt="VinFast VF 9">
+                        <div class="featured-badge">Nổi bật</div>
+                    </div>
+                    <div class="featured-content">
+                        <span class="news-category">Ô tô</span>
+                        <h3><a href="news-detail.html">VinFast VF 9 chính thức ra mắt thị trường châu Âu với giá từ 59.000 EUR</a></h3>
+                        <p class="news-excerpt">VinFast vừa chính thức công bố giá bán mẫu SUV điện VF 9 tại thị trường châu Âu, bắt đầu từ 59.000 EUR (khoảng 1,56 tỷ đồng) cho phiên bản tiêu chuẩn và 69.000 EUR (khoảng 1,82 tỷ đồng) cho phiên bản cao cấp...</p>
+                        <div class="news-meta">
+                            <span class="news-date"><i class="far fa-calendar-alt"></i> 15/11/2023</span>
+                            <span class="news-author"><i class="far fa-user"></i> Tuấn Kiệt</span>
+                            <span class="news-comments"><i class="far fa-comments"></i> 24 bình luận</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Grid -->
+        <section class="news-grid-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Tin Mới Nhất</h2>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="news-grid">
+                    <!-- Article 1 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="../images/news-1.jpg" alt="Toyota Raize 2024">
+                            <div class="news-date">
+                                <span>20</span>
+                                <span>Th11</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Ô tô</span>
+                            <h4><a href="news-detail.html">Toyota Raize 2024 ra mắt với thiết kế mới, giá từ 529 triệu đồng</a></h4>
+                            <p class="news-excerpt">Toyota Raize 2024 vừa được ra mắt tại thị trường Nhật Bản với nhiều nâng cấp đáng giá về thiết kế và công nghệ...</p>
+                            <div class="news-meta">
+                                <span><i class="far fa-eye"></i> 1.245</span>
+                                <span><i class="far fa-comments"></i> 18</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 2 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="../images/news-2.jpg" alt="Honda Winner X 2024">
+                            <div class="news-date">
+                                <span>18</span>
+                                <span>Th11</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Xe máy</span>
+                            <h4><a href="news-detail.html">Honda Winner X 2024 ra mắt với động cơ mới, giá từ 56,99 triệu đồng</a></h4>
+                            <p class="news-excerpt">Honda Winner X 2024 chính thức ra mắt thị trường Việt Nam với nhiều cải tiến về động cơ và ngoại hình...</p>
+                            <div class="news-meta">
+                                <span><i class="far fa-eye"></i> 2.103</span>
+                                <span><i class="far fa-comments"></i> 42</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 3 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="../images/news-3.jpg" alt="Tesla Cybertruck">
+                            <div class="news-date">
+                                <span>15</span>
+                                <span>Th11</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Công nghệ</span>
+                            <h4><a href="news-detail.html">Tesla Cybertruck chính thức bàn giao những chiếc đầu tiên cho khách hàng</a></h4>
+                            <p class="news-excerpt">Sau nhiều năm chờ đợi, Tesla đã chính thức bàn giao những chiếc Cybertruck đầu tiên cho khách hàng tại sự kiện đặc biệt ở Texas...</p>
+                            <div class="news-meta">
+                                <span><i class="far fa-eye"></i> 3.456</span>
+                                <span><i class="far fa-comments"></i> 87</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 4 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="../images/news-4.jpg" alt="BMW R 1300 GS">
+                            <div class="news-date">
+                                <span>12</span>
+                                <span>Th11</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Xe máy</span>
+                            <h4><a href="news-detail.html">BMW R 1300 GS 2024 ra mắt: Nâng cấp toàn diện, giá từ 18.500 USD</a></h4>
+                            <p class="news-excerpt">BMW Motorrad vừa chính thức trình làng thế hệ mới của mẫu adventure bike huyền thoại R 1300 GS với nhiều cải tiến đáng giá...</p>
+                            <div class="news-meta">
+                                <span><i class="far fa-eye"></i> 1.789</span>
+                                <span><i class="far fa-comments"></i> 35</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 5 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="../images/news-5.jpg" alt="Mercedes-Benz E-Class 2024">
+                            <div class="news-date">
+                                <span>10</span>
+                                <span>Th11</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Ô tô</span>
+                            <h4><a href="news-detail.html">Mercedes-Benz E-Class 2024 ra mắt Việt Nam, giá từ 2,699 tỷ đồng</a></h4>
+                            <p class="news-excerpt">Mercedes-Benz Việt Nam vừa chính thức ra mắt thế hệ mới E-Class 2024 với nhiều nâng cấp về công nghệ và tiện nghi...</p>
+                            <div class="news-meta">
+                                <span><i class="far fa-eye"></i> 2.345</span>
+                                <span><i class="far fa-comments"></i> 56</span>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Article 6 -->
+                    <article class="news-card">
+                        <div class="news-image">
+                            <img src="../images/news-6.jpg" alt="Vietnam Motor Show 2023">
+                            <div class="news-date">
+                                <span>08</span>
+                                <span>Th11</span>
+                            </div>
+                        </div>
+                        <div class="news-content">
+                            <span class="news-category">Sự kiện</span>
+                            <h4><a href="news-detail.html">Vietnam Motor Show 2023: Những mẫu xe đáng chú ý nhất</a></h4>
+                            <p class="news-excerpt">Vietnam Motor Show 2023 đã khai mạc với sự tham gia của nhiều hãng xe lớn, giới thiệu hàng loạt mẫu xe mới và công nghệ đột phá...</p>
+                            <div class="news-meta">
+                                <span><i class="far fa-eye"></i> 3.012</span>
+                                <span><i class="far fa-comments"></i> 72</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <div class="pagination">
+                    <a href="#" class="active">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#"><i class="fas fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-box">
+                    <div class="newsletter-content">
+                        <h3>Đăng ký nhận bản tin</h3>
+                        <p>Nhận thông tin mới nhất về xe hơi, xe máy và các chương trình khuyến mãi</p>
+                    </div>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Nhập email của bạn">
+                        <button type="submit">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Car<span>Shop</span></div>
+                    <p class="footer-tagline">Nơi đam mê tốc độ bắt đầu</p>
+                    <p>CarShop tự hào là địa chỉ uy tín cung cấp các dòng xe chất lượng cao với dịch vụ chuyên nghiệp.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liên Kết Nhanh</h4>
+                    <ul>
+                        <li><a href="index-center.html">Trang Chủ</a></li>
+                        <li><a href="index-product.html">Ô Tô</a></li>
+                        <li><a href="index-motor.html">Xe Máy</a></li>
+                        <li><a href="news.html">Tin Tức</a></li>
+                        <li><a href="intro.html">Giới Thiệu</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Dịch Vụ</h4>
+                    <ul>
+                        <li><a href="#">Bảo Dưỡng Định Kỳ</a></li>
+                        <li><a href="#">Sửa Chữa Chuyên Sâu</a></li>
+                        <li><a href="#">Phụ Tùng Chính Hãng</a></li>
+                        <li><a href="#">Tư Vấn Tài Chính</a></li>
+                        <li><a href="#">Bảo Hiểm Xe</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liên Hệ</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Đường ABC, Quận XYZ, TP.HCM</li>
+                        <li><i class="fas fa-phone-alt"></i> 0909 123 456</li>
+                        <li><i class="fas fa-envelope"></i> info@carshop.vn</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-left">
+                    <p>Trần Tuấn Kiệt: 23126021, Nhóm trưởng</p>
+                    <p>Lê Quốc Khải: 23126017</p>
+                    <p>Trương Phước Khánh: 23126018</p>
+                </div>
+                <div class="footer-right">
+                    <p>Đại học Sư Phạm Kỹ Thuật TP.HCM</p>
+                    <p>Giảng viên: Nguyễn Hữu Trung</p>
+                    <p>Môn: Thiết Kế Web</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/cart-js.js"></script>
+    <script src="../javascript/news.js"></script>
+</body>
+</html>

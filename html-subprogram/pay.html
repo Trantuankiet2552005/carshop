@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thanh toán - Oto Xe Máy</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .input-error {
+      border-color: #ef4444;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-lg">
+    <h1 class="text-3xl font-bold text-center text-red-600 mb-6">Thanh Toán Đơn Hàng</h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Thông tin khách hàng -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4">Thông Tin Khách Hàng</h2>
+        <form id="form-info" class="space-y-4">
+          <div>
+            <input type="text" id="name" placeholder="Họ và tên" class="w-full p-3 border rounded-xl">
+            <p id="name-error" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập họ tên</p>
+          </div>
+          <div>
+            <input type="email" id="email" placeholder="Email" class="w-full p-3 border rounded-xl">
+            <p id="email-error" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập email hợp lệ</p>
+          </div>
+          <div>
+            <input type="tel" id="phone" placeholder="Số điện thoại" class="w-full p-3 border rounded-xl">
+            <p id="phone-error" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập số điện thoại (ít nhất 10 số)</p>
+          </div>
+          <div>
+            <input type="text" id="address" placeholder="Địa chỉ nhận hàng" class="w-full p-3 border rounded-xl">
+            <p id="address-error" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập địa chỉ</p>
+          </div>
+        </form>
+      </div>
+
+      <!-- Đơn hàng -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4">Chi Tiết Đơn Hàng</h2>
+        <div id="order-details" class="space-y-4"></div>
+      </div>
+    </div>
+
+    <!-- Phương thức thanh toán -->
+    <div class="mt-8">
+      <h2 class="text-xl font-semibold mb-4">Chọn Phương Thức Thanh Toán</h2>
+      <div class="space-y-3">
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="payment" value="cod" class="form-radio">
+          <span>Thanh toán khi nhận hàng (COD)</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="payment" value="bank" class="form-radio">
+          <span>Chuyển khoản ngân hàng</span>
+        </label>
+        <label class="flex items-center space-x-2">
+          <input type="radio" name="payment" value="wallet" class="form-radio">
+          <span>Thẻ tín dụng (Visa, Mastercard)</span>
+        </label>
+
+        <!-- Ghi chú cọc COD -->
+        <div id="cod-note" class="mt-2 text-yellow-600 font-medium hidden">
+          * Quý khách vui lòng đặt cọc 10% giá trị đơn hàng để xác nhận thanh toán khi nhận hàng.<br>
+          <span id="deposit-amount" class="text-sm text-gray-700"></span>
+        </div>
+        
+        <!-- Form thẻ tín dụng -->
+        <div id="credit-card-form" class="mt-4 p-4 border border-gray-200 rounded-xl hidden">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Số thẻ</label>
+              <input type="text" id="card-number" placeholder="1234 5678 9012 3456" 
+                     class="w-full p-3 border rounded-xl" maxlength="19">
+              <p id="card-number-error" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập số thẻ hợp lệ (16 số)</p>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Ngày hết hạn (MM/YY)</label>
+                <input type="text" id="card-expiry" placeholder="MM/YY" 
+                       class="w-full p-3 border rounded-xl" maxlength="5">
+                <p id="card-expiry-error" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập ngày hết hạn hợp lệ</p>
+              </div>
+              
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">CVV</label>
+                <input type="password" id="card-cvv" placeholder="123" 
+                       class="w-full p-3 border rounded-xl" maxlength="4">
+                <p id="card-cvv-error" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập mã CVV (3-4 số)</p>
+              </div>
+            </div>
+            
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Tên chủ thẻ</label>
+              <input type="text" id="card-name" placeholder="NGUYEN VAN A" 
+                     class="w-full p-3 border rounded-xl">
+              <p id="card-name-error" class="text-red-500 text-sm mt-1 hidden">Vui lòng nhập tên chủ thẻ</p>
+            </div>
+          </div>
+        </div>
+        
+        <p id="payment-warning" class="text-red-500 font-medium hidden">Vui lòng chọn phương thức thanh toán.</p>
+      </div>
+    </div>
+
+    <!-- Nút xác nhận và nút trở về -->
+    <div class="mt-10 flex justify-center space-x-4">
+      <button onclick="window.location.href='cart.html'" class="px-8 py-3 bg-gray-300 text-gray-800 rounded-full font-semibold hover:bg-gray-400 transition duration-300">
+        Trở Về Giỏ Hàng
+      </button>
+      <button id="confirm-btn" class="px-8 py-3 bg-red-600 text-white rounded-full font-semibold hover:bg-red-700 transition duration-300">
+        Xác Nhận Thanh Toán
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal COD -->
+  <div id="cod-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-2xl max-w-md w-full text-center">
+      <h2 class="text-xl font-bold mb-4">Thông Tin Chuyển Khoản Đặt Cọc</h2>
+      <p>Ngân hàng: Ngân hàng quân đội (MB Bank)</p>
+      <p>Số tài khoản: <strong>23126021</strong></p>
+      <p>Tên tài khoản: <strong>Trần Tuấn Kiệt</strong></p>
+      <div class="my-2">
+        <img src="../images/qr.jpg" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
+      </div>
+      <p id="cod-deposit" class="text-lg mt-2 text-red-600 font-bold"></p>
+      <p id="cod-content" class="text-sm mt-1"></p>
+      <div class="flex justify-center gap-4 mt-4">
+        <button onclick="document.getElementById('cod-modal').classList.add('hidden')" class="px-4 py-2 bg-gray-300 rounded-full">Hủy</button>
+        <button onclick="completePayment()" class="px-4 py-2 bg-green-600 text-white rounded-full">Hoàn Thành</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Bank -->
+  <div id="bank-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white p-6 rounded-2xl max-w-md w-full text-center">
+      <h2 class="text-xl font-bold mb-4">Thông Tin Chuyển Khoản</h2>
+      <p>Ngân hàng: Ngân hàng quân đội (MB Bank)</p>
+      <p>Số tài khoản: <strong>23126021</strong></p>
+      <p>Tên tài khoản: <strong>Trần Tuấn Kiệt</strong></p>
+      <div class="my-2">
+        <img src="../images/qr.jpg" alt="QR Code" class="mx-auto w-32 h-32 object-contain">
+      </div>
+      <p id="bank-deposit" class="text-lg mt-2 text-red-600 font-bold"></p>
+      <p id="bank-content" class="text-sm mt-1"></p>
+      <div class="flex justify-center gap-4 mt-4">
+        <button onclick="document.getElementById('bank-modal').classList.add('hidden')" class="px-4 py-2 bg-gray-300 rounded-full">Hủy</button>
+        <button onclick="completePayment()" class="px-4 py-2 bg-green-600 text-white rounded-full">Hoàn Thành</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal thành công -->
+  <div id="success-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
+      <div class="text-center">
+        <div class="flex justify-end">
+          <button id="close-success-modal" class="text-gray-500 hover:text-gray-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-500 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-green-600 mb-2">Thanh toán thành công!</h3>
+        <p class="mb-4">Mã đơn hàng của bạn là: <span id="order-id" class="font-bold text-lg"></span></p>
+        <p class="mb-6 text-gray-600">Cảm ơn bạn đã mua hàng. Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất.</p>
+        <div class="flex justify-center space-x-4">
+          <button id="complete-btn" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition duration-200">
+            Xem đơn hàng
+          </button>
+          <button onclick="closeSuccessModal()" class="bg-gray-200 text-gray-800 px-6 py-2 rounded-lg hover:bg-gray-300 transition duration-200">
+            Trang chủ
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../javascript/pay.js"></script>
+</body>
+</html>

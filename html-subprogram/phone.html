@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Giả lập Điện thoại – Cuộc gọi Đến Tự động</title>
+  <link rel="stylesheet" href="../css/index-style.css">
+  <link rel="stylesheet" href="../css/cart-style.css">
+  <style>
+    /* Reset cơ bản */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: #f0f0f0;
+      font-family: sans-serif;
+    }
+
+    /* Khung điện thoại */
+    .phone-frame {
+      width: 360px;
+      height: 640px;
+      border: 16px solid #333;
+      border-top-width: 60px;
+      border-bottom-width: 60px;
+      border-radius: 36px;
+      background: #000;
+      position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .phone-frame::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: calc(50% - 60px);
+      width: 120px;
+      height: 30px;
+      background: #333;
+      border-radius: 0 0 16px 16px;
+    }
+
+    /* Màn hình nội dung */
+    .screen {
+      width: 100%;
+      height: 100%;
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Status bar */
+    .status-bar {
+      height: 24px;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8px;
+      font-size: 12px;
+      color: #333;
+    }
+    .status-bar .time { font-weight: bold; }
+    .status-bar .icons { display: flex; gap: 4px; }
+
+    /* Nội dung app */
+    .app-content {
+      padding: 16px;
+    }
+    .app-content h1 { font-size: 20px; margin-bottom: 12px; }
+    .app-content p { margin-bottom: 8px; line-height: 1.4; }
+
+    /* Overlay Cuộc gọi đến */
+    .incoming-call {
+      display: none;
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.8);
+      color: #fff;
+      text-align: center;
+      padding-top: 100px;
+      z-index: 10;
+    }
+    .incoming-call img {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .incoming-call h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+    }
+    .incoming-call p {
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+    .incoming-call .actions {
+      display: flex;
+      justify-content: space-around;
+      padding: 0 40px;
+    }
+    .incoming-call .actions button {
+      width: 60px; height: 60px;
+      border: none; border-radius: 50%;
+      font-size: 24px; color: #fff;
+      cursor: pointer;
+    }
+    .incoming-call .actions .accept {
+      background: #28a745;
+    }
+    .incoming-call .actions .reject {
+      background: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="phone-frame">
+    <div class="screen">
+      <!-- Status bar -->
+      <div class="status-bar">
+        <div class="time">09:41</div>
+        <div class="icons">
+          <span>📶</span><span>📡</span><span>🔋</span>
+        </div>
+      </div>
+
+      <!-- Nội dung chính -->
+      <div class="app-content">
+        <h1>Giả lập Điện thoại</h1>
+        <p>Trần Tuấn Kiệt 23126021</p>
+        <p>Trương Phước Khánh 23126018</p>
+        <p>Lê Quốc Khải 23126017</p>
+        <h4>Reload để nhận lại cuộc gọi</h4>
+      </div>
+
+      <!-- Overlay Incoming Call -->
+      <div id="incomingCall" class="incoming-call">
+        <div class="logo-container">
+            <div class="logo">Car<span>Shop</span></div>
+            <div class="tagline">Nơi đam mê tốc độ bắt đầu</div>
+        </div>
+        <h2>+84 23126021</h2>
+        <p>Đang gọi đến...</p>
+        <div class="actions">
+          <button class="accept" id="acceptBtn">📞</button>
+          <button class="reject" id="rejectBtn">❌</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const incomingCall = document.getElementById('incomingCall');
+    const acceptBtn    = document.getElementById('acceptBtn');
+    const rejectBtn    = document.getElementById('rejectBtn');
+
+    // Hiển thị tự động khi trang load xong
+    window.addEventListener('load', () => {
+      // Nếu muốn trễ vài giây: dùng setTimeout(..., 2000);
+      incomingCall.style.display = 'block';
+    });
+
+// Chấp nhận cuộc gọi
+acceptBtn.addEventListener('click', () => {
+  // Cập nhật trạng thái cuộc gọi
+  incomingCall.querySelector('p').textContent = 'Đã trả lời';
+
+  // Phát âm thanh
+  const audio = new Audio('../images/mp3phone.mp3');
+  audio.play();
+
+  // Ẩn thông báo sau 1.5 giây
+
+});
+
+
+    // Từ chối cuộc gọi
+    rejectBtn.addEventListener('click', () => {
+      incomingCall.querySelector('p').textContent = 'Đã từ chối';
+      setTimeout(() => { incomingCall.style.display = 'none'; }, 1500);
+    });
+  </script>
+
+</body>
+</html>

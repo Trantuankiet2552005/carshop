@@ -1,0 +1,113 @@
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+.watermark {
+  position: relative;
+}
+.watermark::after {
+  content: "CARSHOP";
+  position: absolute;
+  opacity: 0.05;
+  font-size: 80px;
+  color: #4cc9f0;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-weight: bold;
+}
+/* Header styles from index-style.css */
+.logo {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #ffffff 0%, #4cc9f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+.logo span {
+  background: linear-gradient(to right, #4cc9f0 0%, #a5ffd6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tagline {
+  font-size: 0.7rem;
+  color: rgba(0, 0, 0, 0.7);
+  margin-top: 0.2rem;
+  letter-spacing: 1.5px;
+  text-align: center;
+}
+/* Button styles */
+.action-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+.print-btn {
+  background: #3b82f6;
+  color: white;
+}
+.print-btn:hover {
+  background: #2563eb;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.email-btn {
+  background: #10b981;
+  color: white;
+}
+.email-btn:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.pdf-btn {
+  background: #8b5cf6;
+  color: white;
+}
+.pdf-btn:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+/* Table styles */
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.invoice-table th {
+  background-color: #f3f4f6;
+  text-align: left;
+  padding: 0.75rem;
+  font-weight: 600;
+}
+.invoice-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+.invoice-table tr:last-child td {
+  border-bottom: none;
+}

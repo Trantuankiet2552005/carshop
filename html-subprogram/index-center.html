@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarShop - Nơi đam mê tốc độ bắt đầu</title>
+    <link rel="stylesheet" href="../css/index-style.css">
+    <!-- Thêm font awesome và animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Thêm Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        
+        <div class="header-container">
+            <!--Logo-->
+            <div class="logo-container">
+                <div class="logo">Car<span>Shop</span></div>
+                <div class="tagline">Nơi đam mê tốc độ bắt đầu</div>
+            </div>
+        </div>
+                    <!--Logo-->
+                    <div style="justify-content: center;">
+                        <nav class="main-nav">
+                            <ul>
+                                <li><a href="index-center.html" class="active">TRANG CHỦ</a></li>
+                                <li><a href="index-product.html">Ô TÔ</a></li>
+                                <li><a href="index-motor.html">XE MÁY</a></li>
+                                <li><a href="intro.html">GIỚI THIỆU</a></li>
+                                <li><a href="profile.html">THÔNG TIN</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                        <!--Logo-->
+                   <div style="justify-content: right;"></div>
+                            
+                        </div>
+    
+                  </div>
+                  <div class="auth-buttons">
+                    <span id="welcome-msg"></span>
+                    <a href="cart.html" class="cart-icon">
+                        <span class="cart-badge" id="cart-count">0</span>
+                        <svg class="cart-svg" viewBox="0 0 24 24" width="28" height="28">
+                            <path fill="currentColor" d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+                        </svg>
+                    </a>
+                    &thinsp;
+                    <a href="login.html" class="btn login-btn" id="login-btn">ĐĂNG NHẬP</a>
+                    <a href="signup.html" class="btn signup-btn" id="signup-btn">ĐĂNG KÝ</a>
+                    <a href="#" class="btn logout-btn" id="logout-btn" style="display: none;">ĐĂNG XUẤT</a>
+                </div>
+    </header>
+    
+    <!--class="active" chỉnh màu cho từng Thông tin trong trang-->
+
+    <main>
+        <!-- Hero Banner với slider -->
+        <section class="hero-slider">
+            <div class="slider-container">
+                <div class="slide active" style="background-image: url('../images/hero-banner-1.jpg');">
+                    <div class="slide-content">
+
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('../images/hero-banner-2.jpg');">
+                    <div class="slide-content">
+  
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('../images/hero-banner-3.jpg');">
+                    <div class="slide-content">
+
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('../images/hero-banner-4.jpg');">
+                    <div class="slide-content">
+
+                    </div>
+                </div>
+                <div class="slide" style="background-image: url('../images/hero-banner-5.jpg');">
+                    <div class="slide-content">
+
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
+                <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="slider-dots"></div>
+        </section>
+
+        <!-- Lợi ích nổi bật -->
+        <section class="benefits-section">
+            <div class="container">
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3>Bảo Hành Chính Hãng</h3>
+                        <p>Cam kết bảo hành dài hạn từ nhà sản xuất với dịch vụ hỗ trợ 24/7</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Giao Xe Tận Nhà</h3>
+                        <p>Miễn phí vận chuyển toàn quốc với dịch vụ giao nhận chuyên nghiệp</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-percentage"></i>
+                        </div>
+                        <h3>Ưu Đãi Tài Chính</h3>
+                        <p>Hỗ trợ trả góp lãi suất 0% với thủ tục đơn giản, nhanh chóng</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3>Hỗ Trợ 24/7</h3>
+                        <p>Đội ngũ tư vấn viên luôn sẵn sàng giải đáp mọi thắc mắc của bạn</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Xe nổi bật -->
+        <section id="featured-cars" class="featured-section">
+            <div class="section-header">
+                <h2>Xe Nổi Bật</h2>
+                <p>Những mẫu xe được yêu thích nhất hiện nay</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="container">
+                <div class="featured-tabs">
+                    <button class="tab-btn active" data-category="all">Tất Cả</button>
+                    <button class="tab-btn" data-category="car">Ô Tô</button>
+                    <button class="tab-btn" data-category="motor">Xe Máy</button>
+                </div>
+                
+                <div class="featured-grid">
+                    <!-- Các sản phẩm sẽ được thêm bằng JavaScript -->
+                </div>
+                
+                <div class="text-center">
+                    <a href="index-product.html" class="view-all-btn">Xem Tất Cả Ô Tô <i class="fas fa-arrow-right"></i></a>
+                    <a href="index-motor.html" class="view-all-btn">Xem Tất Cả Xe Máy <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Khuyến mãi -->
+        <section id="promotions" class="promo-section" style="background-image: url('../images/promo-bg.jpg');">
+            <div class="promo-overlay"></div>
+            <div class="container">
+                <div class="section-header light">
+                    <h2>Khuyến Mãi Đặc Biệt</h2>
+                    <p>Ưu đãi hấp dẫn chỉ có tại CarShop</p>
+                    <div class="section-divider"></div>
+                </div>
+                
+                <div class="promo-grid">
+                    <div class="promo-card">
+                        <div class="promo-badge">-2%</div>
+                        <img src="../images/promo-car.jpg" alt="Khuyến mãi ô tô">
+                        <div class="promo-content">
+                            <h3>Giảm Giá Mùa Hè</h3>
+                            <p>Giảm ngay 2% cho các dòng xe hơi thể thao nhập khẩu</p>
+                            <div class="promo-countdown" data-date="2023-12-31">
+                                <div class="countdown-item">
+                                    <span class="days">00</span>
+                                    <span>Ngày</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="hours">00</span>
+                                    <span>Giờ</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="minutes">00</span>
+                                    <span>Phút</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="seconds">00</span>
+                                    <span>Giây</span>
+                                </div>
+                            </div>
+                            <a href="../html-subprogram/index-product.html" class="promo-btn">Áp Dụng Ngay</a>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-card">
+                        <div class="promo-badge">0%</div>
+                        <img src="../images/promo-finance.jpg" alt="Ưu đãi tài chính">
+                        <div class="promo-content">
+                            <h3>Trả Góp 0% Lãi Suất</h3>
+                            <p>Ưu đãi trả góp không lãi suất với xe mô tô trong 12 tháng</p>
+                            <div class="promo-countdown" data-date="2023-11-30">
+                                <div class="countdown-item">
+                                    <span class="days">00</span>
+                                    <span>Ngày</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="hours">00</span>
+                                    <span>Giờ</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="minutes">00</span>
+                                    <span>Phút</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="seconds">00</span>
+                                    <span>Giây</span>
+                                </div>
+                            </div>
+                            <a href="../html-subprogram/index-motor.html" class="promo-btn">Áp dụng ngay</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dịch vụ -->
+        <section id="services" class="services-section">
+            <div class="section-header">
+                <h2>Dịch Vụ Của Chúng Tôi</h2>
+                <p>Đa dạng dịch vụ đáp ứng mọi nhu cầu của khách hàng</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('../images/s1.jpg');"></div>
+                        <div class="service-content">
+                            <h3>Bảo Dưỡng Định Kỳ</h3>
+                            <p>Dịch vụ bảo dưỡng chuyên nghiệp với trang thiết bị hiện đại và đội ngũ kỹ thuật viên lành nghề</p>
+                            <a href="tel:+84 23126021" class="service-link">Liên Hệ Ngay <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('../images/s2.jpg');"></div>
+                        <div class="service-content">
+                            <h3>Cứu Hộ Xe 24/24</h3>
+                            <p>Đội ngũ kỹ thuật luôn sẵn sàng hỗ trợ bạn 24/24</p>
+                            <a href="tel:+84 23126021" class="service-link">Liên Hệ Ngay <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-img" style="background-image: url('../images/s3.jpg');"></div>
+                        <div class="service-content">
+                            <h3>Tư Vấn Tài Chính</h3>
+                            <p>Hỗ trợ tư vấn các gói vay ưu đãi với lãi suất cạnh tranh từ các ngân hàng đối tác</p>
+                            <a href="phone.html" class="service-link">Liên Hệ Ngay <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Đánh giá khách hàng -->
+        <section class="testimonial-section">
+            <div class="section-header">
+                <h2>Khách Hàng Nói Về Chúng Tôi</h2>
+                <p>Những phản hồi từ khách hàng đã sử dụng dịch vụ</p>
+                <div class="section-divider"></div>
+            </div>
+            <div class="container">
+                <div class="testimonial-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"Tôi rất hài lòng với chiếc xe tôi mua tại CarShop. Dịch vụ tư vấn chuyên nghiệp và chế độ hậu mãi tuyệt vời."</p>
+                            <div class="customer-info">
+                                <img src="../images/c1.jpg" alt="Khách hàng">
+                                <div>
+                                    <h4>Nguyễn Văn A</h4>
+                                    <span>Khách hàng thân thiết</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <p>"Đội ngũ nhân viên rất nhiệt tình và am hiểu sản phẩm. Tôi đã được tư vấn rất kỹ lưỡng trước khi quyết định mua xe."</p>
+                            <div class="customer-info">
+                                <img src="../images/c2.jpg" alt="Khách hàng">
+                                <div>
+                                    <h4>Trần Thị B</h4>
+                                    <span>Khách hàng mới</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p>"CarShop có chính sách bảo hành và hậu mãi tốt nhất mà tôi từng biết. Tôi hoàn toàn yên tâm khi sử dụng dịch vụ ở đây."</p>
+                            <div class="customer-info">
+                                <img src="../images/c3.jpg" alt="Khách hàng">
+                                <div>
+                                    <h4>Lê Văn C</h4>
+                                    <span>Khách hàng từ 2018</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+   <!-- Tin tức & Sự kiện -->
+<section class="news-section">
+    <div class="section-header">
+        <h2>Tin Tức Ô Tô & Xe Máy</h2>
+        <p>Cập nhật những tin tức mới nhất về thế giới xe</p>
+        <div class="section-divider"></div>
+    </div>
+    <div class="container">
+        <div class="news-grid" id="news-container">
+            <!-- Tin tức sẽ được thêm bằng JavaScript -->
+        </div>
+    </div>
+</section>
+
+        <!-- Liên hệ -->
+        <section class="contact-section" style="background-image: url('../images/contact-bg.jpg');">
+            <div class="contact-overlay"></div>
+            <div class="container">
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h2>Liên Hệ Với Chúng Tôi</h2>
+                        <p>Bạn có câu hỏi hoặc cần tư vấn? Hãy liên hệ ngay với đội ngũ của chúng tôi.</p>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Địa chỉ</h4>
+                                <p>1 Võ Văn Ngân, TP Thủ Đức, TP.HCM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-phone-alt"></i>
+                            <div>
+                                <h4>Điện thoại</h4>
+                                <p>+84 23126021</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>23126021@carshop.vn</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/?ref=homescreenpwa&_rdc=1&_rdr#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form">
+                        <h3>Gửi Tin Nhắn</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Số điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Nội dung liên hệ" required></textarea>
+                        </div>
+                        <button id="messageBtn"  type="submit" class="submit-btn">Gửi Tin Nhắn</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo">Car<span>Shop</span></div>
+                    <p class="footer-tagline">Nơi đam mê tốc độ bắt đầu</p>
+                    <p>CarShop tự hào là địa chỉ uy tín cung cấp các dòng xe chất lượng cao với dịch vụ chuyên nghiệp.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Liên Kết Nhanh</h4>
+                    <ul>
+                        <li><a href="index-center.html">Trang Chủ</a></li>
+                        <li><a href="index-product.html">Ô Tô</a></li>
+                        <li><a href="index-motor.html">Xe Máy</a></li>
+                        <li><a href="intro.html">Giới Thiệu</a></li>
+                        <li><a href="profile.html">Thông Tin</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Dịch Vụ</h4>
+                    <ul>
+                        <li><a href="tel: +84 23126021">Bảo Dưỡng Định Kỳ</a></li>
+                        <li><a href="tel: +84 23126021">Sửa Chữa Chuyên Sâu</a></li>
+                        <li><a href="tel: +84 23126021">Phụ Tùng Chính Hãng</a></li>
+                        <li><a href="phone.html">Tư Vấn Tài Chính</a></li>
+                        <li><a href="phone.html">Bảo Hiểm Xe</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Đăng Ký Nhận Tin</h4>
+                    <p>Đăng ký để nhận thông tin khuyến mãi và tin tức mới nhất từ chúng tôi.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Email của bạn" required>
+                        <button id="submitBtn" type="submit"><i class="fas fa-paper-plane"></i></button>
+
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="../javascript/auth.js"></script>
+    <script src="../javascript/cart-js.js"></script>
+    <script src="../javascript/index-js.js"></script>
+    <script>
+      
+    </script>
+</body>
+</html>

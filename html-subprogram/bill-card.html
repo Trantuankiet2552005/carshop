@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hóa Đơn Thanh Toán - CarShop</title>
+  <link rel="stylesheet" href="../css/bill-cod.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+  <div class="max-w-4xl mx-auto mt-10 p-8 bg-white rounded-xl shadow-lg print-area">
+    <!-- Header hóa đơn -->
+    <div class="text-center mb-8">
+      <div class="flex flex-col items-center mb-6">
+        <div class="logo-container mb-4">
+          <div class="logo text-center">Car<span>Shop</span></div>
+          <div class="tagline">Nơi đam mê tốc độ bắt đầu</div>
+        </div>
+        <div>
+          <p class="text-gray-600">Địa chỉ: 1 Võ Văn Ngân, TP Thủ Đức, TP.HCM</p>
+          <p class="text-gray-600">Điện thoại: +84 23126021 - Email: 23126021@carshop.vn</p>
+        </div>
+      </div>
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">HÓA ĐƠN THANH TOÁN</h2>
+      <div class="flex justify-between mt-4 border-t border-b border-gray-200 py-3">
+        <p class="text-sm"><span class="font-semibold">Mã đơn hàng:</span> <span id="invoice-id" class="font-mono">HD20230001</span></p>
+        <p class="text-sm"><span class="font-semibold">Ngày:</span> <span id="invoice-date">15/11/2023</span></p>
+      </div>
+    </div>
+
+    <!-- Thông tin khách hàng -->
+    <div class="mb-8">
+      <h3 class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-4">Thông Tin Khách Hàng</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <p class="text-sm"><span class="font-semibold">Họ tên:</span> <span id="customer-name">Nguyễn Văn A</span></p>
+          <p class="text-sm"><span class="font-semibold">Điện thoại:</span> <span id="customer-phone">0909123456</span></p>
+        </div>
+        <div>
+          <p class="text-sm"><span class="font-semibold">Email:</span> <span id="customer-email">nguyenvana@gmail.com</span></p>
+          <p class="text-sm"><span class="font-semibold">Địa chỉ:</span> <span id="customer-address">123 Đường XYZ, Quận 1, TP.HCM</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chi tiết đơn hàng -->
+    <div class="mb-8">
+      <h3 class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-4">Chi Tiết Đơn Hàng</h3>
+      <div class="overflow-x-auto">
+        <table class="invoice-table">
+          <thead>
+            <tr>
+              <th class="text-left">STT</th>
+              <th class="text-left">Sản phẩm</th>
+              <th class="text-center">Đơn giá</th>
+              <th class="text-center">Số lượng</th>
+              <th class="text-right">Thành tiền</th>
+            </tr>
+          </thead>
+          <tbody id="order-items">
+            <!-- Dữ liệu sẽ được thêm bằng JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Tổng cộng và phương thức thanh toán -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-4">Phương Thức Thanh Toán</h3>
+        <p id="payment-method" class="font-medium">Thẻ tín dụng</p>
+        <div id="card-info" class="mt-4 p-4 bg-gray-50 rounded-lg">
+
+
+          <p class="text-green-600 mt-2">Đã thanh toán toàn bộ</p>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-4">Tổng Cộng</h3>
+        <div class="space-y-3">
+          <div class="flex justify-between">
+            <span class="text-gray-600">Tạm tính:</span>
+            <span id="subtotal" class="font-medium">25,000,000 VND</span>
+          </div>
+          <div class="flex justify-between">
+            <span class="text-gray-600">Giảm giá:</span>
+            <span id="discount" class="font-medium">0 VND</span>
+          </div>
+          <div class="flex justify-between font-bold text-lg border-t border-gray-200 pt-3">
+            <span>Tổng cộng:</span>
+            <span id="total" class="text-blue-600">25,000,000 VND</span>
+          </div>
+          <div class="flex justify-between text-green-600">
+            <span>Đã thanh toán:</span>
+            <span id="paid-amount">25,000,000 VND</span>
+          </div>
+          <div class="flex justify-between font-bold text-lg border-t border-gray-200 pt-3">
+            <span>Còn lại:</span>
+            <span id="remaining" class="text-red-600">0 VND</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thông tin bổ sung -->
+    <div class="border-t border-gray-200 pt-4 text-sm text-gray-600">
+      <p class="font-semibold">Lưu ý:</p>
+      <ul class="list-disc pl-5 mt-2 space-y-1">
+        <li>Quý khách vui lòng kiểm tra kỹ hóa đơn trước khi thanh toán</li>
+        <li>Hóa đơn này là xác nhận thanh toán thành công</li>
+        <li>Mọi thắc mắc xin liên hệ hotline: 0909 123 456</li>
+      </ul>
+    </div>
+
+    <!-- Chữ ký -->
+    <div class="grid grid-cols-2 gap-8 mt-12 pt-8 border-t border-gray-200">
+      <div class="text-center">
+        <p class="font-semibold">Người mua hàng</p>
+        <p class="italic text-gray-500 text-sm">(Ký và ghi rõ họ tên)</p>
+        <div class="h-16 mt-4 border-t border-dashed border-gray-300"></div>
+      </div>
+      <div class="text-center">
+        <p class="font-semibold">Người bán hàng</p>
+        <p class="italic text-gray-500 text-sm">(Ký và ghi rõ họ tên)</p>
+        <div class="h-16 mt-4 border-t border-dashed border-gray-300"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nút in hóa đơn -->
+  <div class="max-w-4xl mx-auto mt-8 text-center no-print space-x-4">
+    <button onclick="window.location.href='cart.html'" class="action-btn bg-gray-500 hover:bg-gray-600">
+      <i class="fas fa-shopping-cart mr-2"></i>Trở Về Giỏ Hàng
+    </button>
+    <button onclick="window.print()" class="action-btn print-btn">
+      <i class="fas fa-print mr-2"></i>In Hóa Đơn
+    </button>
+    <button onclick="sendInvoice()" class="action-btn email-btn">
+      <i class="fas fa-envelope mr-2"></i>Gửi Email
+    </button>
+    <button onclick="downloadInvoice()" class="action-btn pdf-btn">
+      <i class="fas fa-download mr-2"></i>Tải PDF
+    </button>
+  </div>
+
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <script src="../javascript/bill-card.js"></script>
+</body>
+</html>
