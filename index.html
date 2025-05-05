@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giới Thiệu - CarShop</title>
-    <link rel="stylesheet" href="../css/index-style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Thông báo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Giới Thiệu - CarShop</title>
+  <link rel="stylesheet" href="../css/index-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
     }
 
-    .notice {
-      display: none;
+    .notice, #redirectNotice {
       height: 100vh;
-      background-color: #f8d7da;
-      color: #721c24;
       text-align: center;
       padding: 2rem;
       box-sizing: border-box;
-      display: flex;
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
     }
 
-    .notice h1 {
+    .notice {
+      background-color: #f8d7da;
+      color: #721c24;
+    }
+
+    .notice h1, #redirectNotice h1 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
     }
@@ -47,68 +46,81 @@
       border-radius: 8px;
       cursor: pointer;
     }
+
+    #redirectNotice {
+      background-color: #fff3cd;
+      color: #856404;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Thông báo nếu đang dùng điện thoại -->
   <div class="notice" id="mobileNotice">
     <h1>⚠️ Trang web chỉ hiển thị đẹp nhất khi đăng nhập bằng máy tính</h1>
     <p>Vui lòng sử dụng máy tính để có trải nghiệm tốt nhất.</p>
     <button onclick="continueOnMobile()">Vẫn sử dụng với điện thoại</button>
   </div>
 
-  <main class="intro-container">
+  <!-- Thông báo đang chuyển hướng khi dùng máy tính -->
+  <div id="redirectNotice">
+    <h1>🔁 Đang chuyển đến phiên bản dành cho máy tính...</h1>
+  </div>
+
+  <!-- Nội dung chính -->
+  <main class="intro-container" style="display: none;" id="mainContent">
     <section class="intro-header">
-        <h1>Về Chúng Tôi</h1>
-        <p>CarShop được thành lập bởi nhóm sinh viên đam mê công nghệ và xe cộ, với mong muốn mang đến trải nghiệm mua sắm xe trực tuyến tốt nhất cho người dùng Việt Nam.</p>
+      <h1>Về Chúng Tôi</h1>
+      <p>CarShop được thành lập bởi nhóm sinh viên đam mê công nghệ và xe cộ, với mong muốn mang đến trải nghiệm mua sắm xe trực tuyến tốt nhất cho người dùng Việt Nam.</p>
     </section>
-    
+
     <section class="team-section">
-        <h2>Đội Ngũ Phát Triển</h2>
-        <div class="team-grid">
-            <div class="team-card leader">
-                <div class="card-header">
-                    <img src="../images/kiet.jpg" alt="Trần Tuấn Kiệt" class="team-avatar">
-                </div>
-                <div class="card-body">
-                    <h3 class="team-name">Trần Tuấn Kiệt</h3>
-                    <span class="team-role">Nhóm trưởng - Fullstack Developer</span>
-                    <p class="team-desc">Phụ trách toàn bộ lập trình frontend và backend, triển khai chức năng chính, và quản lý tiến độ dự án. Đảm bảo hệ thống hoạt động ổn định và bảo mật.</p>
-                </div>
-            </div>
-            
-            <div class="team-card">
-                <div class="card-header">
-                    <img src="../images/khanh.jpg" alt="Trương Phước Khánh" class="team-avatar">
-                </div>
-                <div class="card-body">
-                    <h3 class="team-name">Trương Phước Khánh</h3>
-                    <span class="team-role">UI/UX Designer</span>
-                    <p class="team-desc">Thiết kế giao diện người dùng, tối ưu trải nghiệm người dùng. Đảm bảo website có giao diện đẹp mắt, dễ sử dụng trên mọi thiết bị.</p>
-                </div>
-            </div>
-            
-            <div class="team-card">
-                <div class="card-header">
-                    <img src="../images/khai.jpg" alt="Lê Quốc Khải" class="team-avatar">
-                </div>
-                <div class="card-body">
-                    <h3 class="team-name">Lê Quốc Khải</h3>
-                    <span class="team-role">Frontend Developer</span>
-                    <p class="team-desc">Phát triển giao diện người dùng, tối ưu hiệu suất website. Hỗ trợ kiểm thử và đảm bảo tính tương thích trên nhiều trình duyệt khác nhau.</p>
-                </div>
-            </div>
+      <h2>Đội Ngũ Phát Triển</h2>
+      <div class="team-grid">
+        <div class="team-card leader">
+          <div class="card-header">
+            <img src="../images/kiet.jpg" alt="Trần Tuấn Kiệt" class="team-avatar">
+          </div>
+          <div class="card-body">
+            <h3 class="team-name">Trần Tuấn Kiệt</h3>
+            <span class="team-role">Nhóm trưởng - Fullstack Developer</span>
+            <p class="team-desc">Phụ trách toàn bộ lập trình frontend và backend, triển khai chức năng chính, và quản lý tiến độ dự án. Đảm bảo hệ thống hoạt động ổn định và bảo mật.</p>
+          </div>
         </div>
+
+        <div class="team-card">
+          <div class="card-header">
+            <img src="../images/khanh.jpg" alt="Trương Phước Khánh" class="team-avatar">
+          </div>
+          <div class="card-body">
+            <h3 class="team-name">Trương Phước Khánh</h3>
+            <span class="team-role">UI/UX Designer</span>
+            <p class="team-desc">Thiết kế giao diện người dùng, tối ưu trải nghiệm người dùng. Đảm bảo website có giao diện đẹp mắt, dễ sử dụng trên mọi thiết bị.</p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="card-header">
+            <img src="../images/khai.jpg" alt="Lê Quốc Khải" class="team-avatar">
+          </div>
+          <div class="card-body">
+            <h3 class="team-name">Lê Quốc Khải</h3>
+            <span class="team-role">Frontend Developer</span>
+            <p class="team-desc">Phát triển giao diện người dùng, tối ưu hiệu suất website. Hỗ trợ kiểm thử và đảm bảo tính tương thích trên nhiều trình duyệt khác nhau.</p>
+          </div>
+        </div>
+      </div>
     </section>
-    
+
     <section class="mission-section">
-        <h2>Sứ Mệnh Của Chúng Tôi</h2>
-        <div class="mission-content">
-            <p>Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng với giá cả hợp lý nhất. CarShop không chỉ là nơi mua bán xe mà còn là cộng đồng chia sẻ đam mê tốc độ và công nghệ xe hơi.</p>
-            <p>Với đội ngũ trẻ trung, nhiệt huyết và sáng tạo, chúng tôi luôn nỗ lực cải tiến để mang đến trải nghiệm mua sắm trực tuyến tốt nhất cho người dùng Việt Nam.</p>
-        </div>
+      <h2>Sứ Mệnh Của Chúng Tôi</h2>
+      <div class="mission-content">
+        <p>Chúng tôi cam kết mang đến cho khách hàng những sản phẩm chất lượng với giá cả hợp lý nhất. CarShop không chỉ là nơi mua bán xe mà còn là cộng đồng chia sẻ đam mê tốc độ và công nghệ xe hơi.</p>
+        <p>Với đội ngũ trẻ trung, nhiệt huyết và sáng tạo, chúng tôi luôn nỗ lực cải tiến để mang đến trải nghiệm mua sắm trực tuyến tốt nhất cho người dùng Việt Nam.</p>
+      </div>
     </section>
-</main>
+  </main>
+
   <script>
     function isMobileDevice() {
       return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
@@ -118,18 +130,16 @@
       window.location.href = "html-subprogram/index-center.html";
     }
 
-    // Tự động xử lý khi trang vừa tải
     window.onload = function () {
       if (isMobileDevice()) {
-        // Nếu là thiết bị di động → hiện thông báo
         document.getElementById('mobileNotice').style.display = 'flex';
       } else {
-        // Nếu là máy tính → chuyển hướng ngay
-        window.location.href = "html-subprogram/index-center.html";
+        document.getElementById('redirectNotice').style.display = 'flex';
+        setTimeout(() => {
+          window.location.href = "html-subprogram/index-center.html";
+        }, 4000);
       }
     };
   </script>
 </body>
 </html>
-
-    <!--class="active" chỉnh màu cho từng Thông tin trong trang-->
